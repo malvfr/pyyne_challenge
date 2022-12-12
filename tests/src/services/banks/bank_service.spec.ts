@@ -11,7 +11,10 @@ describe("BankService", () => {
   test("getBalancesFromAllBanks returns correct balance from all banks available", () => {
     const result = bankService.getBalancesFromAllBanks(123);
 
-    expect(result).toEqual(["215.5 USD", "512.5 USD"]);
+    expect(result).toEqual([
+      { amount: 215.5, currency: "USD" },
+      { amount: 512.5, currency: "USD" },
+    ]);
   });
 
   test("getTransactionsFromAllBanks returns all transactions from all banks available", () => {

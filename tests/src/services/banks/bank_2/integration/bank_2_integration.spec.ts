@@ -4,7 +4,10 @@ import { BankTransactionType } from "../../../../../../src/services/banks/bank_i
 describe("Bank2Integration", () => {
   test("getBalance returns correct balance", () => {
     const bank2Integration = new Bank2Integration();
-    expect(bank2Integration.getBalance(123)).toBe("512.5 USD");
+    expect(bank2Integration.getBalance(123)).toEqual({
+      amount: 512.5,
+      currency: "USD",
+    });
   });
 
   test("getTransactions returns correct transactions", () => {

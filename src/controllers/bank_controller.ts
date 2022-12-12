@@ -1,3 +1,4 @@
+import { BankBalance } from "../services/banks/bank_integration";
 import BankService from "../services/banks/bank_service";
 
 export default class BankController {
@@ -5,7 +6,8 @@ export default class BankController {
 
   printBalances(accountId: number) {
     const balances = this.bankService.getBalancesFromAllBanks(accountId);
-    console.log("balances", balances);
+
+    console.log("balances", balances.map(this.formatBalance));
 
     return balances;
   }
@@ -20,5 +22,9 @@ export default class BankController {
     console.log("transactions", transactions);
 
     return transactions;
+  }
+
+  private formatBalance(balance: BankBalance) {
+    return `${balance.amount} ${balance.currency}`;
   }
 }

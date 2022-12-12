@@ -11,7 +11,11 @@ export default class Bank2Integration implements BankIntegration {
 
   getBalance(accountId: number) {
     const balance = this.accountSource.getBalance(accountId);
-    return `${balance.getBalance()} ${balance.getCurrency()}`;
+
+    return {
+      amount: balance.getBalance(),
+      currency: balance.getCurrency(),
+    };
   }
 
   getTransactions(accountId: number, fromDate: Date, toDate: Date) {

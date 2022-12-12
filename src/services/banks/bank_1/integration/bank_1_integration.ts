@@ -10,9 +10,10 @@ export default class Bank1Integration implements BankIntegration {
   }
 
   getBalance(accountId: number) {
-    return `${this.accountSource.getAccountBalance(
-      accountId
-    )} ${this.accountSource.getAccountCurrency(accountId)}`;
+    return {
+      amount: this.accountSource.getAccountBalance(accountId),
+      currency: this.accountSource.getAccountCurrency(accountId),
+    };
   }
 
   getTransactions(accountId: number, fromDate: Date, toDate: Date) {

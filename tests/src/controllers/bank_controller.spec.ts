@@ -12,7 +12,10 @@ describe("BankService", () => {
     const accountId = 12345;
     const balances = bankService.getBalancesFromAllBanks(accountId);
 
-    const result = ["215.5 USD", "512.5 USD"];
+    const result = [
+      { amount: 215.5, currency: "USD" },
+      { amount: 512.5, currency: "USD" },
+    ];
 
     expect(balances).toEqual(result);
   });

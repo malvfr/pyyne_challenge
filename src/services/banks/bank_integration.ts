@@ -9,8 +9,12 @@ export type BankTransaction = {
   text: string;
 };
 
+export type BankBalance = {
+  amount: number;
+  currency: string;
+};
 export default interface BankIntegration {
-  getBalance(accountId: number): string;
+  getBalance(accountId: number): BankBalance;
   getTransactions(
     accountNum: number,
     fromDate: Date,
