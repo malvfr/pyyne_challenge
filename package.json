@@ -2,7 +2,7 @@
   "name": "pyyne",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch"
